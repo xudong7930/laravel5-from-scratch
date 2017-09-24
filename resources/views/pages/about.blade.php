@@ -76,18 +76,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    About Page.
                 </div>
             </div>
-        </div>
-        <div class="">
-            @if(empty($people))
-                <div class="#">No People</div>
-            @else
-                @foreach ($people as $person)
-                <li>{{$person}}</li>
-                @endforeach
-            @endif
         </div>
     </body>
 </html>
