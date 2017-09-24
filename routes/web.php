@@ -27,3 +27,15 @@ Route::get('about', function(){
 
 Route::get('pages', 'PagesController@home');
 Route::get('pages/about', 'PagesController@about');
+
+
+Route::get('cards', 'CardsController@index');
+Route::post('cards', 'CardsController@store');
+Route::post('cards/{card}/store', 'NotesController@store');
+
+Route::get('cards/{card}', 'CardsController@show2');
+Route::get('cards/show/{id}', 'CardsController@show');
+Route::delete('cards/{card}', 'CardsController@destroy');
+
+Route::get('notes/{note}/edit', 'NotesController@edit');
+Route::patch('notes/{note}', 'NotesController@update');
