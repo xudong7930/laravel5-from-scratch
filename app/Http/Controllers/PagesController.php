@@ -15,6 +15,7 @@ class PagesController extends Controller
 
     public function about()
     {
-        return 'about page.';
+        // return 'about page.';
+        return view('pages.about');
     }
 }
