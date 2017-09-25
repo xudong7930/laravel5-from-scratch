@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class CardsController extends Controller
 {
+    public function __construct ()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $users = User::pluck('id', 'email');

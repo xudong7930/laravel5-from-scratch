@@ -39,3 +39,7 @@ Route::delete('cards/{card}', 'CardsController@destroy');
 
 Route::get('notes/{note}/edit', 'NotesController@edit');
 Route::patch('notes/{note}', 'NotesController@update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
