@@ -1,5 +1,48 @@
 <?php
 
+class Mailer {
+
+}
+
+class RegisterUsers
+{
+    protected $mailer;
+    private $foobar;
+
+    function __construct(Mailer $mailer, $foobar)
+    {
+        $this->mailer = $mailer;
+        $this->foobar = $foobar;
+    }
+
+    public function setMailer(Mailer $mailer)
+    {
+        $this->mailer = $mailer;
+    }
+}
+
+App::bind('foo', function(){
+    return new RegisterUsers(new Mailer, 'foobar');
+});
+
+App::singleton('bar', function(){
+    return new RegisterUsers(new Mailer, 'foobar');
+});
+
+
+// dump(app('foo'));
+// dd(App::make('foo'));
+
+// 不同的实例
+$one = app('foo');
+$two = app('foo');
+var_dump($one, $two);
+
+// 相同的实例
+$four = app('bar');
+$five = app('bar');
+var_dump($four, $five);
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +53,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('resolve', function() {
+    dump(Request::all());
+});
 
 Route::get('begin', function() {
     // Session::flash('flash_message', 'your are signed in.');
