@@ -11,6 +11,18 @@
 |
 */
 
+Route::get('begin', function() {
+    // Session::flash('flash_message', 'your are signed in.');
+    // Session::flash('flash_message_type', 'danger');
+    
+    // session()->flash('flash_message', 'wo are arriving at shangdi station');
+    // session()->flash('flash_message_type', 'danger');
+    
+    flash('just one we will got you surprise', 'info');
+
+    return redirect('/');
+});
+
 Route::get('/', function () {
     $people = [];
     // $people = ['Taylor', 'Matt', 'Jeffery'];

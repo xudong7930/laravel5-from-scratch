@@ -75,6 +75,19 @@
             @endif
 
             <div class="content">
+                <div class="#">
+                    @if (Session::has('flash_message'))
+                        <div class="alert alert-{{ Session::get('flash_message_type') }}">
+                            {{ Session::get('flash_message') }}
+                        </div>
+                    @endif
+
+                    @if (session()->has('flash_message'))
+                        <div class="alert alert-{{ session('flash_message_type') }}">
+                            {{ session('flash_message') }}
+                        </div>
+                    @endif
+                </div>
                 <div class="title m-b-md">
                     Laravel
                 </div>
